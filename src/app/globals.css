@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors (New system) */
+  --color-brand-blue: #1a6fe6;
+  --color-brand-blue-hover: #1152b3;
+  --color-brand-black: #000000;
+  --color-brand-white: #FFFFFF;
+  --color-brand-gray-light: #f9fafb;
+  --color-brand-gray-bg: #f3f4f6;
+  --color-brand-gray-border: #e5e7eb;
+  --color-brand-text-muted: #4b5563;
+
+  /* Legacy mappings to map old styles directly to the new palette */
+  --color-brand-black-deep: #FFFFFF;
+  --color-brand-gold: #1a6fe6;
+  --color-brand-gold-light: #1152b3;
+  --color-brand-gold-dark: #1152b3;
+  --color-brand-gray-dark: #f3f4f6;
+  --color-brand-gray-light: #e5e7eb;
+  
+  /* Brand fonts */
+  --font-sans: var(--font-outfit), system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+  
+  /* Border radius adjustments for high-end look */
+  --radius-luxury: 12px;
+  --radius-luxury-lg: 20px;
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #000000;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border: 2px solid #f9fafb;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1a6fe6;
+}
+
+/* Premium selection */
+::selection {
+  background-color: rgba(26, 111, 230, 0.15);
+  color: #1a6fe6;
+}
+
+/* Luxury visual effects */
+.blue-text-gradient {
+  background: linear-gradient(135deg, #1a6fe6 0%, #1152b3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Keep gold class names mapped to blue for fallback compatibility */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #1a6fe6 0%, #1152b3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to right, #1a6fe6, #1152b3) 1;
+}
+
+.gold-glow {
+  box-shadow: 0 0 15px rgba(26, 111, 230, 0.15);
+}
+
+.gold-glow-hover:hover {
+  box-shadow: 0 0 25px rgba(26, 111, 230, 0.25);
+  border-color: rgba(26, 111, 230, 0.5);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(26, 111, 230, 0.15);
+}
+
+.glass-panel-interactive {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(26, 111, 230, 0.12);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-interactive:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(26, 111, 230, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(26, 111, 230, 0.05);
+}
+
+/* Smooth custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Background aesthetic meshes */
+.bg-mesh {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
